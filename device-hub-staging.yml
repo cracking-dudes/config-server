@@ -1,0 +1,53 @@
+#####
+##list of usp-boot application envs used in production with default values 
+##create file like usp-boot-development or usp-boot-staging to overwrite these values.
+######
+
+##-----------------------EXPLICITE ENV SECTION-------------------------------###
+#platform envs- can be read from application-profile.yml
+
+#rabbitmq
+EVENTS_ADDRESSES: rabbit.stg.int:5672
+EVENTS_USERNAME: usrvstg
+EVENTS_PASSWORD: vysHzrTYnK53zb63
+
+##Hazelcast
+HAZELCAST_ADDRESS: hazelcast42.stg.int:5701
+
+##eureka server
+EUREKA_SERVICE_URL: http://admin:fonfonfon@eureka.stg.int:8761/eureka/
+
+##mongodb
+MONGODB_URI: mongodb+srv://devicehub:Nwccstgdevicehub678@homewifi-nokia-hw-stg.sprky.mongodb.net/hw_devicehub?ssl=true&authSource=admin
+#applicationspecific
+MULTITENANCY_ENABLED: true
+#OOKLA_SERVER_URL: #{null}
+#OWRTCLIENT_READ_TIMEOUT: 5000
+SPRING_ZIPKIN_ENABLED: false
+SUPPORTED_SHELLCOMMANDS: route,arp,ifconfig,uptime,date,lanhostd,ip,ps,phystat.sh,cfgcli,curl,netstat,ubus,cp,touch,ebtables,iptables,dumpleases,kill,cat,ddmcli,ndk_dumpleases,hw_nat,ip6tables,iwinfo,wl,iwpriv,swug,tcpdump,uci,ussa_cli,wlanconfig
+#TR143_SPEEDTEST_SERVER_SELECT_TIME: 20
+VERNEMQ_SERVER_URL: http://VkQm8Yynmfhf3ys4aDlUPXFQlOAiom00@verne.${INTERNAL_DOMAIN}:8888/api/v1
+
+#-envs present in code but not in default application.yml@Value usage---##
+
+
+###################---native ENVs for which RELAXED BOUND ENV NAME is used in deployment.---##############
+
+spring.security.user.name: admin
+spring.security.user.password: fonfonfon
+
+LOGGING_LEVEL_COM_FON: TRACE
+#ribbon:ReadTimeout: 15
+spring.data.mongodb.database: hw_devicehub
+
+##------envs present in code but not in default application.yml @Value usage-------##
+#gen.httptrace: false
+
+
+##SYSTEMENV-for reference ..below section must be commented.
+#CONFIG_SERVER_URL: https://qZsUALLusIBh:67E5u2u1YdXq@configserver.stg.homewifi.nokia.com
+#JAVA_OPTS
+#SERVICE_PORT
+#SPRING_PROFILES_ACTIVE
+#SERVER_MAXPORT
+#SERVER_MINPORT
